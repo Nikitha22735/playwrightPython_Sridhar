@@ -1,0 +1,8 @@
+playwright
+pytest
+pytest-playwright
+pytest-xdist==3.8.0
+pytest-rerunfailures 
+
+
+# pip install -r requirements.txt
