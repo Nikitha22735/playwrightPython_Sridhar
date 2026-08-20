@@ -3,13 +3,14 @@ import pytest
 
 from pages.loginPage import loginPage
 from pages.homePage import homePage
-
+from utils.jsonhandling import jsonData
 @pytest.mark.login
 def test_positivelogin(page,navigateToAmazon):    
     homePageObj = homePage(page)
     loginPageObj = loginPage(page)
     homePageObj.clickOnAccountsNdList()
-    loginPageObj.enterEmailId("trainingplaywright@gmail.com")
+    creds = jsonData("testdata\\creds.json")
+    loginPageObj.enterEmailId(creds["positive"]["username"])
     loginPageObj.clickOnContinueBtn()
     loginPageObj.enterPw("Welcome@04")
     loginPageObj.clickOnSignInBtn()
