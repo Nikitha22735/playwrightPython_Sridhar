@@ -2,7 +2,11 @@ playwright
 pytest
 pytest-playwright
 pytest-xdist==3.8.0
-pytest-rerunfailures 
+pytest-rerunfailures
+openpyxl
+python-dotenv 
+pytest-html
+allure-pytest
 
 
 # pip install -r requirements.txt
