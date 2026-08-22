@@ -1,6 +1,8 @@
 import csv
 import json
+import os
 
+from dotenv import load_dotenv
 from openpyxl import load_workbook
 import pytest
 
@@ -21,7 +23,7 @@ def test_csvHandling():
             print(values[1]["username"])
 
 # pip install openpyxl
-@pytest.mark.dh
+# @pytest.mark.dh
 def test_excel():
      workbook = load_workbook("testdata\\sample_creds.xlsx")
      sheet = workbook["Sheet2"]
@@ -29,5 +31,29 @@ def test_excel():
      for i in sheet.iter_rows(min_row=2, values_only=True):
           values.append(i)
      print(values)
+
+
+def test_excel_write():
+     workbook = load_workbook("testdata\\sample_creds.xlsx")
+     sheet = workbook["sheet1"]
+     # sheet.append(["test","test"])
+     # sheet["A5"]="test"
+     sheet.delete_rows(2,sheet.max_row)
+     workbook.save("testdata\\sample_creds.xlsx")
+
+# @pytest.mark.dh
+def test_cli():
+     print(os.getenv('usname_s'))
+     print(os.getenv('pw_s'))
+
+
+# pip install python-dotenv
+@pytest.mark.dh
+def test_cli():
+     load_dotenv(os.getenv("file"))
+     print(os.getenv('urls_env'))
+     print(os.getenv('us_env'))
+     print(os.getenv('pw_env'))
+     
 
 
