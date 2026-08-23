@@ -15,6 +15,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      usname_s: ${{vars.USERNAME}}
+      pw_s: ${{secrets.PASSWORD}}
 
     steps:
       # 1️⃣ Checkout repository
