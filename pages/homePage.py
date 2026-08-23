@@ -11,6 +11,12 @@ class homePage:
     def clickOnAccountsNdList(self):
         self.accountsNdList.click()
 
+    @allure.step("searchForProduct")
+    def searchForProduct(self, product):
+        self.searchBar.click()
+        self.searchBar.fill(product)
+        self.searchBar.press("Enter")
+
     @allure.step("validateTheVisiblityOfSearchBar")
     def validateTheVisiblityOfSearchBar(self):
         expect(self.searchBar).not_to_be_visible()
