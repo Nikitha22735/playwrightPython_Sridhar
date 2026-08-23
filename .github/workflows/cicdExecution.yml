@@ -7,11 +7,17 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
+  schedule:
+      - cron: '30 21 12 8 *'    #min hr day mnth week
 
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      usname_s: ${{vars.USERNAME}}
+      pw_s: ${{secrets.PASSWORD}}
 
     steps:
       # 1️⃣ Checkout repository
